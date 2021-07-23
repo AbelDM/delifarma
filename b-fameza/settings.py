@@ -132,7 +132,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'abeldaza1991@gmail.com'  # Para enviar emails
-EMAIL_HOST_PASSWORD = 'huion**1991**120291**abeldm'  # contraseña real de correo
+EMAIL_HOST_PASSWORD = 'admin123'  # contraseña real de correo
 EMAIL_RECEIVING_USER = ['jdaza@autonoma.edu.pe']
 # now sign in with your host gmail account in your browser
 # open following link and turn it ON

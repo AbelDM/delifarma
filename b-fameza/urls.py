@@ -4,13 +4,15 @@ from fameza import views1
 from django.contrib.auth.views import LoginView, LogoutView
 from rest_framework.authtoken import views
 from api.views import Login, Cerrar
+from fameza import Soap
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views1.home_view, name=''),
-    path('api/',include(('api.urls','api'))),
+    path('api/', include(('api.urls', 'api'))),
+    path('Soap/', Soap.consulta()),
     path('apigenerador/', views.obtain_auth_token),
-    path('inicio/',Login.as_view(),name='login'),
+    path('inicio/', Login.as_view(), name='login'),
     path('Cerrar/', Cerrar.as_view()),
     path('afterlogin', views1.afterlogin_view, name='afterlogin'),
     path('logout', LogoutView.as_view(template_name='fameza/logout.html'), name='logout'),
@@ -37,7 +39,6 @@ urlpatterns = [
     path('delete-order/<int:pk>', views1.delete_order_view, name='delete-order'),
     path('update-order/<int:pk>', views1.update_order_view, name='update-order'),
 
-
     path('customersignup', views1.customer_signup_view),
     path('customerlogin', LoginView.as_view(template_name='fameza/customerlogin.html'), name='customerlogin'),
     path('inicio-cliente', views1.customer_home_view, name='customer-home'),
@@ -46,12 +47,10 @@ urlpatterns = [
     path('edit-profile', views1.edit_profile_view, name='edit-profile'),
     path('download-invoice/<int:orderID>/<int:productID>', views1.download_invoice_view, name='download-invoice'),
 
-
     path('add-to-cart/<int:pk>', views1.add_to_cart_view, name='add-to-cart'),
     path('carrito', views1.cart_view, name='carrito'),
     path('remove-from-cart/<int:pk>', views1.remove_from_cart_view, name='remove-from-cart'),
     path('customer-address', views1.customer_address_view, name='customer-address'),
     path('payment-success', views1.payment_success_view, name='payment-success'),
-
 
 ]
